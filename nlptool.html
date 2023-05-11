@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Cloud Tool</title>
+</head>
+<body>
+  <h1>Word Cloud Tool</h1>
+  <form action="/word-cloud" method="post">
+    <input type="text" name="text" placeholder="Enter text to create a word cloud">
+    <input type="submit" value="Create Word Cloud">
+  </form>
+  <div id="word-cloud"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud/1.7.0/wordcloud.js"></script>
+  <script>
+    function createWordCloud() {
+      var text = document.getElementById("text").value;
+      var wordCloud = new WordCloud({
+        text: text,
+        background: "#ffffff",
+        color: "#000000",
+        size: 500,
+        weight: 100,
+        padding: 10,
+        rotate: false,
+        random: true,
+        link: true,
+        linkTarget: "_blank"
+      });
+      wordCloud.draw(document.getElementById("word-cloud"));
+    }
+  </script>
+</body>
+</html>
