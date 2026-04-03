@@ -1,159 +1,484 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dingqian (Sara) Liu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	<head>
-		<style>
-			ul {
-			  list-style-type: none;
-			  margin: 0;
-			  padding: 0;
-			  overflow: hidden;
-			  background-color: #D6EAF8;
-			}
+    :root {
+      --cream:      #faf7f2;
+      --warm-white: #ffffff;
+      --sand:       #e8e0d4;
+      --tan:        #c9bba8;
+      --brown:      #7a6652;
+      --dark-brown: #3d2e22;
+      --accent:     #8b5e3c;
+      --accent-light: #f3ebe2;
+      --text:       #3a3028;
+      --muted:      #8a7d72;
+      --border:     #ddd5c8;
+    }
 
-			li {
-			  float: left;
-			}
+    html { scroll-behavior: smooth; }
 
-			li a {
-			  display: block;
-			  color: #17202A;
-			  text-align: center;
-			  padding: 14px 16px;
-			  text-decoration: none;
-			}
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
 
-			li a:hover {
-			  background-color: #AED6F1;
-			}
-			* {
-  box-sizing: border-box;
-}
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--dark-brown);
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 16px rgba(61,46,34,.22);
+    }
+    nav a {
+      color: #d4c9bc;
+      text-decoration: none;
+      padding: 15px 20px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      transition: color .2s, background .2s;
+    }
+    nav a:hover {
+      color: #fff;
+      background: rgba(255,255,255,.07);
+    }
 
-/* Create two equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 50%;
-  padding: 20px;
-  height: 450px; /* Should be removed. Only for demonstration */
-}
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #3d2e22 0%, #5c4232 55%, #7a6040 100%);
+      padding: 80px 24px 68px;
+    }
+    .hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .hero-photo img {
+      width: 185px;
+      height: 185px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,.2);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    }
+    .hero-info { flex: 1; min-width: 260px; }
+    .hero-info h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #f5ede3;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .hero-info .role {
+      font-size: .97rem;
+      color: #c9b89f;
+      font-weight: 400;
+      margin-bottom: 3px;
+    }
+    .hero-info .org {
+      font-size: .9rem;
+      color: #a88e76;
+      margin-bottom: 22px;
+    }
+    .hero-info .email a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #e8d8c4;
+      text-decoration: none;
+      font-size: .88rem;
+      border: 1px solid rgba(255,255,255,.2);
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: background .2s, color .2s;
+    }
+    .hero-info .email a:hover {
+      background: rgba(255,255,255,.1);
+      color: #fff;
+    }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-		</style>
-	</head>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163646272-1"></script>
-		<script> 
-  	window.dataLayer = window.dataLayer || [];
-  	function gtag(){dataLayer.push(arguments);}
-  	gtag('js', new Date());
+    /* ── ACCENT DIVIDER ── */
+    .divider {
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--tan) 60%, transparent 100%);
+    }
 
-  	gtag('config', 'UA-163646272-1');
-		</script>
-		<meta charset=“UTF-8”>
-		<title> Dingqian Liu</title>
-		<link href = "/CSS/style.css" type="text/css" rel="stylesheet"/>
--->
-	
+    /* ── MAIN ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 24px 90px;
+    }
 
+    section { margin-bottom: 64px; }
 
-	<body>
-		<!-- Navigator Buttons -->
-		<div id="website">
-			<div class="topnav-centered">
-			<nav class="menu">
-				<ul><center>
-					<!--<li><a href="#home">Home</a></li>-->
-					<!--<li><a href ="https://dingqianl.github.io/web/Sara%20(Dingqian)%20Liu%20CV.pdf">C.V.</a></li>-->
-					<li><a href="https://dingqianl.github.io/web/research.html">Research</a></li>
-					<li><a href="https://dingqianl.github.io/web/teaching.html">Teaching</a></li>
-					<li><a href="https://dingqianl.github.io/web/programming.html">Showcases</a></li>
-					<li><a href="https://dingqianl.github.io/web/outdoor.html">Outdoor Corner</a></li>
-					<li><a href="https://dingqianl.github.io/web/nlptool.html">NLP Tools</a></li>
-				</ul>
-			</nav>
-			</div>
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .section-label h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--dark-brown);
+      white-space: nowrap;
+    }
+    .section-label .rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
 
-			<!-- <div class="row"> -->
-				
+    /* ── BIO ── */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .bio-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 26px 28px;
+      box-shadow: 0 2px 10px rgba(61,46,34,.06);
+      font-size: .93rem;
+      color: var(--text);
+    }
+    .bio-card.full { grid-column: 1 / -1; }
+    .bio-card .card-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .pill {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: .02em;
+    }
 
-				
-				<div class="row">
-					<div class="column">
-						<div class = "picture">
-   							<p><center><img src = "images/Dingqian.png" height = 400/> </p>
-						</div>
-			        	</div>
+    /* ── NEWS ── */
+    .news-wrapper {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(61,46,34,.07);
+      overflow: hidden;
+    }
+    .news-list { list-style: none; }
+    .news-list li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--border);
+      font-size: .92rem;
+      transition: background .15s;
+    }
+    .news-list li:last-child { border-bottom: none; }
+    .news-list li:hover { background: var(--cream); }
+    .news-dot {
+      flex-shrink: 0;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 8px;
+    }
+    .news-list a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .news-list a:hover { text-decoration: underline; }
+    .news-tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      vertical-align: middle;
+    }
+    .tag-paper       { background: #f0e8df; color: #7a4a20; }
+    .tag-data        { background: #e8f0e8; color: #3a6a3a; }
+    .tag-talk        { background: #e8e8f4; color: #3a3a7a; }
+    .tag-forthcoming { background: #fdecea; color: #8b2020; }
 
-					<div class="column">
-						<div class = "contact">
-							<br>
-							<b> <p style="font-family:verdana;"><center><font size=6>Dingqian Liu </font> </p></b><br>
-											<!--	<b> <center><p style="color:grey"><font size=3.5>Ph.D. Candidate in Economics (Financial Economics)</b> </b><br>
-						--><p style="color:grey"><font size=3.5>American Century Investment</p>
-							 <center><p style="color:grey"><font size=3.5>American University Alumni</p>
-							<a style="text-decoration: none" target="_blank" href="mailto:saradingqian.liu@gmail.com"><center> saradingqian.liu@gmail.com</a> 
-			
-								<b> &#160; </b><br>
-							
-							<p, align="left"> Dingqian (Sara) Liu is an Economist turned Quant at American Century Investment. Her research interests includes Investment, Macroeconomics and Behavioral Finance.
-								She is currently engaged in a variety of research projects regarding firm-level financing decisions and the measurement of managerial attention, as well as research regarding the effects of policy uncertainty on financial markets and growth.
+    /* ── FIGURES ── */
+    .figure-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .figure-block {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(61,46,34,.05);
+      text-align: center;
+    }
+    .figure-block img { max-width: 100%; height: auto; border-radius: 6px; }
+    .figure-caption {
+      margin-top: 10px;
+      font-size: .8rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.4;
+    }
 
-								Sara was born and raised in Sichuan, China and received B.A.’s in Finance from the University of International Business and Economics.</p>
-								</div>
+    /* ── EXPLORE LINKS ── */
+    .link-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .link-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 20px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: var(--dark-brown);
+      text-decoration: none;
+      box-shadow: 0 1px 4px rgba(61,46,34,.07);
+      transition: box-shadow .2s, border-color .2s, color .2s, background .2s;
+    }
+    .link-card:hover {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 4px 16px rgba(139,94,60,.15);
+    }
 
-					</div>
-			
-				</div>
-			
-				<!--<center> <span> &#9733;</span> <span style="color:tomato"><b> </b> </span> <span> &#9733;</span><br>
-				</center>-->
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--muted);
+      padding: 28px 24px;
+      border-top: 1px solid var(--border);
+    }
 
-			<hr>
-			<h2> What's New </h3>
-			&#x25cf;  Updates of China VIX Index (Feb. 2015 -- Mar. 2022):</span>  <br>
+    @media (max-width: 640px) {
+      .hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 28px; }
+      .hero-info h1 { font-size: 2rem; }
+      nav a { padding: 13px 10px; font-size: 11px; }
+      .bio-grid { grid-template-columns: 1fr; }
+      .figure-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
 
-			<div class = "picture">
-				<p> <center><img src = "China VIX update.png" height = 320/> </p>
-			</div>				
-			&#x25cf; Job Market Paper presentation: 1)  The 2nd Applied Macroeconomics Forum (2021), AI, Machine Learning, and Macroeconomics; 11 December, 2021, 8:40-9:10 pm, at <a href="https://zoom.us/j/92875273075?pwd=REhhUFVuTCtDV2RoVlFsNjM3S1JqQT09"> link </a> <br>
-			&#x25cf; Job Market Paper presentation: 2)  Mock JMP talk, 10 January 2022. (update link later)	 <br>	
-			&#x25cf; PyData Global 2021 Talk: <a href="https://pydata.org/global2021/schedule/presentation/145/what-do-c-suite-executives-pay-attention-to/" target="_blank"> What Do C-Suite Pay Attention To? </a>  <br>
-			&#x25cf;Forthcoming, IMF Economic Review: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3714028" target="_blank">Stock Prices and Economic Activity in the Time of Coronavirus </a>  <br>
-			<a href="replication package_latest.zip" download> Replication Package </a><br>				
-			&#x25cf;  JMP (update on Dec. 31, 2021): <a href ="JMP version.pdf" target="_blank"> Manager Attention and Leverage Dynamics </a>  <br>
-			<div class = "picture">
-				<p><center> <img src = "images/attention_aggregated capacity and allocation3.jpg" height = 450/> </p>
-			</div>
-			
-			&#x25cf; Updates of China EPU:</span> <a href="https://www.policyuncertainty.com/china_monthly.html" target="_blank"> Mainland China Economic Policy Uncertainty</a>  <br>
+<!-- NAV -->
+<nav>
+  <a href="https://dingqianl.github.io/web/research.html">Research</a>
+  <a href="https://dingqianl.github.io/web/teaching.html">Teaching</a>
+  <a href="https://dingqianl.github.io/web/programming.html">Showcases</a>
+  <a href="https://dingqianl.github.io/web/outdoor.html">Outdoor Corner</a>
+  <a href="https://dingqianl.github.io/web/nlptool.html">NLP Tools</a>
+  <a href="https://dingqianl.github.io/web/blog.html">Blog</a>
+</nav>
 
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="images/Dingqian.png" alt="Dingqian (Sara) Liu" />
+    </div>
+    <div class="hero-info">
+      <h1>Dingqian (Sara) Liu</h1>
+      <p class="role">Quantitative Researcher &nbsp;·&nbsp; Economist</p>
+      <p class="org">American Century Investments &nbsp;|&nbsp; American University Alumni</p>
+      <div class="email">
+        <a href="/cdn-cgi/l/email-protection#9deefceffcf9f4f3faecf4fcf3b3f1f4e8ddfaf0fcf4f1b3fef2f0">✉ <span class="__cf_email__" data-cfemail="1e6d7f6c7f7a7770796f777f703072776b5e79737f7772307d7173">[email&#160;protected]</span></a>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="divider"></div>
 
-			<!--
-			<span style="color:#E35E1F"> &#9733; </span>The paper coauthored with <u>Jialu Ma</u> is published on <a href='https://onlinelibrary.wiley.com/journal/10990836' target='_blank'><b><i>Business Strategy and the Environment</i></b></a>. 
-			<a href="https://onlinelibrary.wiley.com/share/author/IPEPSM8V2ASZJYMKYJ3E?target=10.1002/bse.2817" target="_blank"> [ePDF] </a> <a href="https://doi.org/10.1002/bse.2817" target=_blank>[DOI]</a>  (5/12/21) <br>
+<!-- MAIN -->
+<main class="page">
 
-			<span style="color:#E35E1F"> &#9733; </span> I am <b><a href="covidproof\covid.html" target="_blank">inoculated (fully vaccinated)</a></b> against COVID-19 and eligible to fly out of DC area for interview <b>in person</b>. <a href = "mailto:jeffkuo@gwu.edu"> [email me]</a><br>
+  <!-- About -->
+  <section id="about">
+    <div class="section-label">
+      <h2>About</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="bio-grid">
+      <div class="bio-card full">
+        <p>Dingqian (Sara) Liu is an Economist turned Quantitative Researcher at American Century Investments.
+        Her work sits at the intersection of financial economics, macroeconomics, and data science.</p>
+        <br/>
+        <p>She is currently engaged in research on firm-level financing decisions, the measurement of
+        managerial attention, and the effects of economic policy uncertainty on financial markets and growth.
+        Sara was born and raised in Sichuan, China and holds a B.A. in Finance from the
+        University of International Business and Economics (UIBE).</p>
+      </div>
+      <div class="bio-card">
+        <div class="card-heading">Research Interests</div>
+        <div class="interests">
+          <span class="pill">Investment</span>
+          <span class="pill">Macroeconomics</span>
+          <span class="pill">Behavioral Finance</span>
+          <span class="pill">NLP &amp; Text Analysis</span>
+          <span class="pill">Policy Uncertainty</span>
+        </div>
+      </div>
+      <div class="bio-card">
+        <div class="card-heading">Affiliations</div>
+        <p style="font-size:.9rem; color:var(--muted);">
+          American Century Investments<br/>
+          American University (Alumni)<br/>
+          Univ. of International Business &amp; Economics (B.A.)
+        </p>
+      </div>
+    </div>
+  </section>
 
--->
-			<!--&#x25cf; <span style="color:#FF4500"> </span> Lastest version of <a href="https://docs.google.com/document/d/1MjY3WLtKHyr-PiUOyTJtgUPPRT96VBP103icUzYcDCo/edit?usp=sharing" target="blank"> Spring 2021 TA assignment </a> of GWU MA Applied Economics has been released.<br> -->
+  <!-- What's New — primary highlighted section -->
+  <section id="news">
+    <div class="section-label">
+      <h2>What's New</h2>
+      <div class="rule"></div>
+    </div>
 
-				<hr id="home">
+    <div class="news-wrapper">
+      <ul class="news-list">
+        <li>
+          <span class="news-dot"></span>
+          <span>
+            <span class="news-tag tag-data">Data</span>
+            China VIX Index updated through March 2022 (Feb. 2015 – Mar. 2022).
+          </span>
+        </li>
+        <li>
+          <span class="news-dot"></span>
+          <span>
+            <span class="news-tag tag-forthcoming">Forthcoming</span>
+            <em>IMF Economic Review:</em>&nbsp;
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3714028" target="_blank">
+              Stock Prices and Economic Activity in the Time of Coronavirus
+            </a>
+            &nbsp;—&nbsp;
+            <a href="replication package_latest.zip" download>Replication Package ↓</a>
+          </span>
+        </li>
+        <li>
+          <span class="news-dot"></span>
+          <span>
+            <span class="news-tag tag-paper">Paper</span>
+            Job Market Paper (updated Dec. 31, 2021):&nbsp;
+            <a href="JMP version.pdf" target="_blank">Manager Attention and Leverage Dynamics</a>
+          </span>
+        </li>
+        <li>
+          <span class="news-dot"></span>
+          <span>
+            <span class="news-tag tag-talk">Talk</span>
+            Presented at the <strong>2nd Applied Macroeconomics Forum</strong> — AI, Machine Learning,
+            and Macroeconomics (Dec. 11, 2021)
+          </span>
+        </li>
+        <li>
+          <span class="news-dot"></span>
+          <span>
+            <span class="news-tag tag-talk">Talk</span>
+            <strong>PyData Global 2021:</strong>&nbsp;
+            <a href="https://pydata.org/global2021/schedule/presentation/145/what-do-c-suite-executives-pay-attention-to/" target="_blank">
+              What Do C-Suite Executives Pay Attention To?
+            </a>
+          </span>
+        </li>
+        <li>
+          <span class="news-dot"></span>
+          <span>
+            <span class="news-tag tag-data">Data</span>
+            <a href="https://www.policyuncertainty.com/china_monthly.html" target="_blank">
+              Mainland China Economic Policy Uncertainty (EPU)
+            </a> — ongoing updates
+          </span>
+        </li>
+      </ul>
+    </div>
 
-			
-<!--
-</div>
-	<hr>
-		<p style="text-align:right;">
-					<script type="text/javascript"> document.write("This page was last updated on " + document.lastModified);</script>
-		</p>
--->
-			
+    <div class="figure-row">
+      <div class="figure-block">
+        <img src="China VIX update.png" alt="China VIX Index Feb 2015 – Mar 2022" />
+        <p class="figure-caption">China VIX Index — Feb. 2015 through Mar. 2022</p>
+      </div>
+      <div class="figure-block">
+        <img src="images/attention_aggregated capacity and allocation3.jpg"
+             alt="Aggregated Managerial Attention Capacity and Allocation" />
+        <p class="figure-caption">From <em>Manager Attention and Leverage Dynamics</em> — aggregated attention capacity &amp; allocation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore -->
+  <section id="links">
+    <div class="section-label">
+      <h2>Explore</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="link-grid">
+      <a class="link-card" href="https://dingqianl.github.io/web/research.html">📄 Research</a>
+      <a class="link-card" href="https://dingqianl.github.io/web/teaching.html">📚 Teaching</a>
+      <a class="link-card" href="https://dingqianl.github.io/web/programming.html">💻 Showcases</a>
+      <a class="link-card" href="https://dingqianl.github.io/web/outdoor.html">🏔 Outdoor Corner</a>
+      <a class="link-card" href="https://dingqianl.github.io/web/nlptool.html">🔤 NLP Tools</a>
+      <a class="link-card" href="https://dingqianl.github.io/web/blog.html">✍️ Blog</a>
+      <a class="link-card" href="mailto:saradingqian.liu@gmail.com">✉ Contact</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2024 Dingqian (Sara) Liu &nbsp;·&nbsp; All rights reserved
+</footer>
 
 </body>
 </html>
